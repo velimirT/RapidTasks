@@ -82,6 +82,8 @@ var app = {
 		}
 		
 		function login(user, pass){
+			alert("in login");
+			try{
 			$.post($host, {'act':'login', 'user':user, 'pass':pass}, function(data){ 
 				data = JSON.parse(data);
 				if(data.logged == 'true'){
@@ -97,6 +99,10 @@ var app = {
 					//login screen show, error msg show
 				}
 			});
+			
+			}catch(e){
+				alert(e.toString();
+			}
 		}//login		
     }
 };
