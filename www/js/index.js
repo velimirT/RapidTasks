@@ -40,14 +40,8 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-		//koda tuk!
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
+			db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
+			
 			db.transaction(function (tx) {
 				tx.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name ='users'", [], function (tx, result) {
 					if (result.rows.length == 0) {

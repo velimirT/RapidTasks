@@ -117,3 +117,7 @@ h1 {
 .err{
 	display:none;
 }
+
+#loginScreen{
+	display:none;
+}
