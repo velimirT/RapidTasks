@@ -72,6 +72,7 @@ var app = {
 		}
 		
 		$(document).on('click', '#loginScreen button', function(){
+			alert('clicked');
 			login($("#loginScreen .name").val(), $("#loginScreen .pass").val());
 		});
 		
