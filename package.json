@@ -26,7 +26,8 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-vibration": {},
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "cordova-sqlite-storage": {}
         }
     },
     "dependencies": {
@@ -50,6 +51,7 @@
         "cordova-plugin-splashscreen": "~3.2.1",
         "cordova-plugin-statusbar": "~2.1.2",
         "cordova-plugin-vibration": "~2.1.0",
-        "cordova-plugin-whitelist": "~1.2.1"
+        "cordova-plugin-whitelist": "~1.2.1",
+        "cordova-sqlite-storage": "^2.0.4"
     }
 }

@@ -40,8 +40,8 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-			try{
-			db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
+		try{
+			db = window.sqlitePlugin.openDatabase({name: 'notes.db', location: 'default'});
 			
 			db.transaction(function (tx) {
 				tx.executeSql("SELECT name FROM sqlite_master WHERE type='table' AND name ='users'", [], function (tx, result) {
@@ -49,7 +49,7 @@ var app = {
 						//show login screen
 						showLoginScreen();
 						//create table users, to be filled by the login function
-						db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
+						db = window.sqlitePlugin.openDatabase({name: 'notes.db', location: 'default'});
 						db.transaction(function(tx) {
 							tx.executeSql('CREATE TABLE IF NOT EXISTS users (id, name, pass, avatar, position, email, verified)');
 						}, error, success);
@@ -57,21 +57,22 @@ var app = {
 						//login(results.item(0).rows['name'], results.item(0).rows['password']);
 					}
 				});
-			}
-			}catch(e){
-				alert(e.toString();
-			}
-		function showLoginScreen($err){
-			if($err !== undefined){
-				$("#loginScreen .err").html($err).show();
-			}
-			$("#loginScreen").fadeIn();
+			});
+		} catch(err) {
+			alert(err.toString());
 		}
 		
 		$(document).on('click', '#loginScreen button', function(){
 			alert('clicked');
 			login($("#loginScreen .name").val(), $("#loginScreen .pass").val());
 		});
+		
+		function showLoginScreen($err){
+			if($err !== undefined){
+				$("#loginScreen .err").html($err).show();
+			}
+			$("#loginScreen").fadeIn();
+		}
 		
 		function error(error){
 			alert('err'+error.message);
@@ -101,7 +102,7 @@ var app = {
 			});
 			
 			}catch(e){
-				alert(e.toString();
+				alert(e.toString());
 			}
 		}//login		
     }
