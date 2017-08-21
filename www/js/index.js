@@ -18,7 +18,7 @@
  */
 $user = false;
 $host = 'http://ogicom.bg/scores/notes/func.php';
-
+db = null;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -40,6 +40,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+			try{
 			db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
 			
 			db.transaction(function (tx) {
@@ -57,7 +58,9 @@ var app = {
 					}
 				});
 			}
-			
+			}catch(e){
+				alert(e.toString();
+			}
 		function showLoginScreen($err){
 			if($err !== undefined){
 				$("#loginScreen .err").html($err).show();
